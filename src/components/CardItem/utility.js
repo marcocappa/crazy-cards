@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconAnywhere, IconLiquid, IconStudent } from '../Icons';
+import { IconAnywhere, IconLiquid, IconStudent, IconCards } from '../Icons';
 
 export const getCardIcon = (id) => {
   switch (id) {
@@ -10,6 +10,6 @@ export const getCardIcon = (id) => {
     case 'card-2':
       return <IconLiquid />;
     default:
-      return <IconLiquid />;
+      return <IconCards />;
   }
 };
