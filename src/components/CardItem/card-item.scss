@@ -1,0 +1,12 @@
+.card-detail {
+    &__name {
+        margin-top: 0;
+    }
+
+    &__info {
+        font-weight: 300;
+        span {
+            font-weight: 600;
+        }
+    }
+}
