@@ -26,6 +26,7 @@ module.exports = {
       title: 'webpack Boilerplate',
       template: path.resolve(__dirname, './src/template.html'), // template file
       filename: 'index.html', // output file
+      favicon: './src/images/card.png',
     }),
     new CleanWebpackPlugin(),
     // Only update what has changed on hot reload
