@@ -1,0 +1,22 @@
+.crazy-card-cards-list {
+    margin: 0 -1rem;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+
+    &__item {
+        margin: 0 1rem 1rem;
+        border-radius: 1rem;
+        border: 0.0625rem solid #c1c3c5;
+        background-color: #e8ebf0;
+        box-sizing: border-box;
+        padding: 1rem;
+        min-width: 20.875rem;
+        width: auto;
+    }
+
+    &__name {
+        margin-top: 0;
+    }
+}
