@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardList /> should match snapshot 1`] = `
+<ul
+  className="crazy-card-cards-list"
+>
+  <CardItem
+    apr={18.9}
+    btod={0}
+    className="crazy-card-cards-list__item"
+    creditAvailable={1200}
+    key="card-0"
+    name="Student Life"
+    pod={6}
+  />
+  <CardItem
+    apr={33.9}
+    btod={0}
+    className="crazy-card-cards-list__item"
+    creditAvailable={300}
+    key="card-1"
+    name="Anywhere Card"
+    pod={0}
+  />
+</ul>
+`;
