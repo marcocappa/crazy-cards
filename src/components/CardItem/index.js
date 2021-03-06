@@ -1,5 +1,5 @@
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './card-item.scss';
 
@@ -22,11 +22,16 @@ const CardItem = ({ className, name, apr, btod, pod, creditAvailable }) => (
 );
 
 CardItem.propTypes = {
-  name: PropType.string.isRequired,
-  apr: PropType.number.isRequired,
-  btod: PropType.number.isRequired,
-  pod: PropType.number.isRequired,
-  creditAvailable: PropType.number.isRequired,
+  className: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  apr: PropTypes.number.isRequired,
+  btod: PropTypes.number.isRequired,
+  pod: PropTypes.number.isRequired,
+  creditAvailable: PropTypes.number.isRequired,
+};
+
+CardItem.defaultProps = {
+  className: '',
 };
 
 export default CardItem;
