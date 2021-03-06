@@ -4,8 +4,12 @@ import CardItem from '../CardItem';
 
 const CardList = ({ items }) => (
   <ul className="crazy-card-cards-list">
-    {items.map(({ id, ...item }) => (
-      <CardItem {...item} key={id} className="crazy-card-cards-list__item" />
+    {items.map((item) => (
+      <CardItem
+        {...item}
+        key={item.id}
+        className="crazy-card-cards-list__item"
+      />
     ))}
   </ul>
 );

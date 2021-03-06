@@ -1,6 +1,13 @@
 .card-detail {
     &__name {
+        align-items: center;
+        display: flex;
         margin-top: 0;
+
+        & svg {
+            margin-right: 0.5rem;
+            width: 1.25rem;
+        }
     }
 
     &__info {
