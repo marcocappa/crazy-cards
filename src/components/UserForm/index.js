@@ -1,34 +1,77 @@
 import React, { useState } from 'react';
+import Select from 'react-select';
+import DatePicker from 'react-datepicker';
 import './user-form.scss';
 
-const UserForm = () => {
+const titleOptions = [
+  { value: 'Mr.', label: 'Mr.' },
+  { value: 'Mrs.', label: 'Mrs.' },
+  { value: 'Miss', label: 'Miss' },
+];
+
+const employmentStatusOptions = [
+  { value: 'Student', label: 'Student' },
+  { value: 'Part Time', label: 'Part Time' },
+  { value: 'Full Time', label: 'Full Time' },
+];
+
+const UserForm = ({ onSubmit }) => {
+  const [title, setTitle] = useState('');
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
-  const [title, setTitle] = useState('');
+  const [dateOfBirth, setdateOfBirth] = useState(null);
   const [employmentStatus, setEmploymentStatus] = useState('');
-  const [annualIncome, setAnnualIncome] = useState('');
-  const [houseNumber, setHouseNumber] = useState('');
+  const [annualIncome, setAnnualIncome] = useState(undefined);
+  const [houseNumber, setHouseNumber] = useState(undefined);
   const [postcode, setPostcode] = useState('');
+  const [error, setError] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(firstname);
-    console.log(lastname);
-    console.log(title);
-    console.log(employmentStatus);
-    console.log(annualIncome);
-    console.log(houseNumber);
-    console.log(postcode);
+    if (
+      !firstname ||
+      !lastname ||
+      !title ||
+      !dateOfBirth ||
+      !employmentStatus ||
+      !annualIncome ||
+      !houseNumber ||
+      !postcode
+    ) {
+      setError(true);
+      return;
+    }
 
-    console.log('Submitting Name');
+    setError(false);
+
+    onSubmit({
+      firstname,
+      lastname,
+      title,
+      employmentStatus,
+      annualIncome,
+      houseNumber,
+      postcode,
+    });
   };
 
   return (
     <form onSubmit={handleSubmit} className="crazy-card-user-form">
       <label>
-        <span>First Name:</span>
+        <span>Title:</span>
+        <Select
+          options={titleOptions}
+          onChange={(option) => {
+            setTitle(option.value);
+          }}
+        />
+      </label>
+
+      <label>
+        <span>Firstname:</span>
         <input
+          className="crazy-card-user-form__input"
           name="firstname"
           type="text"
           value={firstname}
@@ -37,8 +80,9 @@ const UserForm = () => {
       </label>
 
       <label>
-        <span>Last Name:</span>
+        <span>Lastname:</span>
         <input
+          className="crazy-card-user-form__input"
           name="lastname"
           type="text"
           value={lastname}
@@ -47,31 +91,29 @@ const UserForm = () => {
       </label>
 
       <label>
-        <span>Title:</span>
-        <input
-          name="title"
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+        <span>Data of birth:</span>
+        <DatePicker
+          selected={dateOfBirth}
+          onChange={(date) => setdateOfBirth(date)}
+          maxDate={new Date()}
+          showDisabledMonthNavigation
         />
       </label>
 
       <label>
-        <span></span>Data of birth:
-      </label>
-      <label>
         <span>Employment Status:</span>
-        <input
-          name="employmentStatus"
-          type="text"
-          value={employmentStatus}
-          onChange={(e) => setEmploymentStatus(e.target.value)}
+        <Select
+          options={employmentStatusOptions}
+          onChange={(option) => {
+            setEmploymentStatus(option.value);
+          }}
         />
       </label>
 
       <label>
         <span>Annual Income:</span>
         <input
+          className="crazy-card-user-form__input"
           name="annualIncome"
           type="number"
           value={annualIncome}
@@ -82,6 +124,7 @@ const UserForm = () => {
       <label>
         <span>House Number:</span>
         <input
+          className="crazy-card-user-form__input"
           name="houseNumber"
           type="number"
           value={houseNumber}
@@ -92,12 +135,14 @@ const UserForm = () => {
       <label>
         <span>Postcode:</span>
         <input
+          className="crazy-card-user-form__input"
           name="postcode"
           type="text"
           value={postcode}
           onChange={(e) => setPostcode(e.target.value)}
         />
       </label>
+
       <div className="crazy-card-user-form__actions">
         <button
           className="crazy-card-user-form__submit"
@@ -107,17 +152,14 @@ const UserForm = () => {
           Submit
         </button>
       </div>
+
+      {error && (
+        <p className="crazy-card-user-form__error">
+          All fields are required. Please fill in the form and submit again.
+        </p>
+      )}
     </form>
   );
 };
-
-// 1     firstname: 'Ollie',
-// 2    lastname: 'Murphree',
-// 3 title: 'Mr.',
-// 4    dataOfBirth: '01/07/1970',
-// 5   employmentStatus: 'Full time',
-// 6  annualIncome: 34000,
-// 7  houseNumber: 700,
-// 8  postcode: 'BS14 9PR',
 
 export default UserForm;
