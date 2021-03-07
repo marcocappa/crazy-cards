@@ -1,0 +1,14 @@
+.crazy-cards-footer {
+    background-color: #0f0a3a;
+    padding: 4rem 0;
+
+    &__container {
+        max-width: 960px;
+        margin: 0 auto;
+
+        & p {
+            color: #f4f4f4;
+            margin: 0;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+.crazy-card-user-form {
+    max-width: 25rem;
+    width: 100%;
+
+    & label {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 1rem;
+
+        & span {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__submit {
+        cursor: pointer;
+        background-color: #0f0a3a;
+        border-radius: 0.5rem;
+        border: 0.125rem solid transparent;
+        color: #f4f4f4;
+        display: inline-block;
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-size: 0.875rem;
+        padding: 0.625rem 1.125rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
+            color: #ffffff;
+            background-color: #403794;
+        }
+    }
+}
