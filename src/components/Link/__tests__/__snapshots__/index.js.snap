@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Link /> should match snapshot 1`] = `
+<Link
+  className="crazy-card-link"
+  to="/"
+/>
+`;
+
+exports[`<Link /> should match snapshot and find classname 1`] = `
+<Link
+  className="crazy-card-link"
+  to="/"
+/>
+`;
