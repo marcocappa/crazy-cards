@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckboxList /> should match snapshot with items 1`] = `
+<ul
+  className="crazy-card-checkbox-list"
+>
+  <li
+    aria-label="List item"
+    className="crazy-card-checkbox-list__item"
+    key="list-item-student"
+  >
+    <Checkbox
+      className="crazy-card-checkbox-list__checkbox"
+      isChecked={false}
+      isDisabled={false}
+      label="Student Card"
+      name="list"
+      onChange={[MockFunction]}
+      value="student"
+    />
+  </li>
+  <li
+    aria-label="List item"
+    className="crazy-card-checkbox-list__item"
+    key="list-item-liquid"
+  >
+    <Checkbox
+      className="crazy-card-checkbox-list__checkbox"
+      isChecked={false}
+      isDisabled={false}
+      label="Liquid Card"
+      name="list"
+      onChange={[MockFunction]}
+      value="liquid"
+    />
+  </li>
+</ul>
+`;
+
+exports[`<CheckboxList /> should match snapshot without items 1`] = `""`;

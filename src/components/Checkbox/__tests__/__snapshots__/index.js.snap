@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox /> should match snapshot 1`] = `
+<Fragment>
+  <input
+    className="crazy-card-checkbox additional-class"
+    defaultChecked={false}
+    disabled={false}
+    id="student"
+    name="list[]"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    htmlFor="student"
+    onClick={[Function]}
+  >
+    Student Card
+  </label>
+</Fragment>
+`;

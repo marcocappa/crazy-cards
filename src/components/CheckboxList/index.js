@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Checkbox from '../Checkbox';
 import './checkbox-list.scss';
@@ -14,7 +14,7 @@ const CheckboxList = ({ name, items, onSelect }) => {
           aria-label="List item"
         >
           <Checkbox
-            onSelect={onSelect}
+            onChange={onSelect}
             className="crazy-card-checkbox-list__checkbox"
             name={name}
             value={item.value}
@@ -38,6 +38,7 @@ CheckboxList.propTypes = {
       checked: PropTypes.bool,
     })
   ),
+  onSelect: PropTypes.func.isRequired,
 };
 
 CheckboxList.defaultProps = {

@@ -9,7 +9,7 @@ const Checkbox = ({
   isDisabled,
   label,
   isChecked,
-  onSelect,
+  onChange,
 }) => {
   const [checked, setChecked] = useState(isChecked);
 
@@ -17,7 +17,7 @@ const Checkbox = ({
     <>
       <input
         onChange={() => {
-          onSelect(value);
+          onChange(value);
         }}
         type="checkbox"
         defaultChecked={checked}
@@ -41,6 +41,7 @@ Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
   isDisabled: PropTypes.bool,
   isChecked: PropTypes.bool,
 };

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardUser /> should match snapshot 1`] = `
+<div
+  className="cray-card-user"
+>
+  <p
+    className="cray-card-user__name"
+  >
+    Mr.
+     
+    Tom
+     
+    Brady
+  </p>
+  <p
+    className="cray-card-user__age"
+  >
+    08-03-2021
+  </p>
+  <div
+    className="cray-card-user__details"
+  >
+    <div>
+      <p>
+        Student
+      </p>
+      <p>
+        Annual income: 
+        5000
+      </p>
+    </div>
+    <div>
+      <p>
+        House number: 
+        310
+      </p>
+      <p>
+        Postcode: 
+        E2 8NP
+      </p>
+    </div>
+  </div>
+</div>
+`;

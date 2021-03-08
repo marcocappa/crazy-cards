@@ -9,8 +9,8 @@ exports[`<CardList /> should match snapshot 1`] = `
     btod={0}
     className="crazy-card-cards-list__item"
     creditAvailable={1200}
-    id="card-0"
-    key="card-0"
+    id="student"
+    key="student"
     name="Student Life"
     pod={6}
   />
@@ -19,9 +19,29 @@ exports[`<CardList /> should match snapshot 1`] = `
     btod={0}
     className="crazy-card-cards-list__item"
     creditAvailable={300}
-    id="card-1"
-    key="card-1"
+    id="anywhere"
+    key="anywhere"
     name="Anywhere Card"
+    pod={0}
+  />
+  <CardItem
+    apr={33.9}
+    btod={0}
+    className="crazy-card-cards-list__item"
+    creditAvailable={1500}
+    id="liquid"
+    key="liquid"
+    name="Liquid Card"
+    pod={0}
+  />
+  <CardItem
+    apr={29.9}
+    btod={0}
+    className="crazy-card-cards-list__item"
+    creditAvailable={400}
+    id="unknown"
+    key="unknown"
+    name="Other Card"
     pod={0}
   />
 </ul>
