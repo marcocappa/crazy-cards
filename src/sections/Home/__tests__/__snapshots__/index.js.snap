@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> should match snapshot 1`] = `
+<div>
+  <div
+    className="crazy-card-app"
+  >
+    <section
+      className="crazy-card-app__hero"
+    >
+      <h1
+        className="crazy-card-app__heading"
+      >
+        <img
+          className="crazy-card-app__heading-icon"
+          src={
+            Object {
+              "process": [Function],
+            }
+          }
+        />
+        Welcome to Crazy Cards!
+      </h1>
+      <h2
+        className="crazy-card-app__subheading"
+      >
+        This is a web application that allow customers to enter their details and review credit cards that are applicable to their credit status.
+      </h2>
+    </section>
+    <section
+      className="crazy-card-app__section"
+    >
+      <h3
+        className="crazy-card-app__section-title"
+      >
+        Crazy Cards currently has available the following cards:
+      </h3>
+      <CardList
+        items={
+          Array [
+            Object {
+              "apr": 18.9,
+              "btod": 0,
+              "creditAvailable": 1200,
+              "id": "student",
+              "name": "Student Life",
+              "pod": 6,
+            },
+            Object {
+              "apr": 33.9,
+              "btod": 0,
+              "creditAvailable": 300,
+              "id": "anywhere",
+              "name": "Anywhere Card",
+              "pod": 0,
+            },
+            Object {
+              "apr": 33.9,
+              "btod": 0,
+              "creditAvailable": 3000,
+              "id": "liquid",
+              "name": "Liquid Card",
+              "pod": 6,
+            },
+          ]
+        }
+      />
+    </section>
+    <section
+      className="crazy-card-app__nav"
+    >
+      <LinkComponent
+        to="/user"
+      >
+        Check My Eligibility
+      </LinkComponent>
+    </section>
+  </div>
+  <Footer />
+</div>
+`;
