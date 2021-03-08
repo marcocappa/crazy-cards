@@ -1,6 +1,6 @@
 import React from 'react';
-import './card-list.scss';
 import CardItem from '../CardItem';
+import './card-list.scss';
 
 const CardList = ({ items }) => (
   <ul className="crazy-card-cards-list">

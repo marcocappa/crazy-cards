@@ -1,16 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import card from '../../images/card.png';
 import UserForm from '../../components/UserForm';
 import Link from '../../components/Link';
 import Footer from '../../components/Footer';
 import CardUser from '../../components/CardUser';
+import CardList from '../../components/CardList';
+import { cards as mockCards } from '../../mockData/cardsData';
 
 const User = () => {
   const [user, setUser] = useState({});
+  const [cardsAvailable, setCardsAvailable] = useState([]);
+  const [allCards, setAllCards] = useState([]);
 
   const handleOnSubmit = (userData) => {
-    setUser(userData);
+    setUser({ ...userData });
   };
+
+  useEffect(() => {
+    setAllCards([...mockCards]);
+  }, []);
+
+  useEffect(() => {
+    const filteredCards = allCards.filter(
+      (card) =>
+        card.id === 'anywhere' ||
+        (!('employmentStatus' in user) && card.id === 'student') ||
+        (user.employmentStatus === 'Student' && card.id === 'student') ||
+        (user.annualIncome > 16000 && card.id === 'liquid')
+    );
+
+    setCardsAvailable([...filteredCards]);
+  }, [user]);
+
   return (
     <div>
       <div className="crazy-card-app">
@@ -40,9 +61,19 @@ const User = () => {
                   <img src={card} className="crazy-card-app__heading-icon" />
                   Available Cards
                 </h1>
+
+                <h2 className="crazy-card-app__subheading">
+                  {user.title} {user.firstname} {user.lastname}, based on your
+                  details:
+                </h2>
+                <CardUser {...user} />
               </section>
               <section className="crazy-card-app__section">
-                <CardUser {...user} dateOfBirth="19/01/1985" />
+                <h3 className="crazy-card-app__section-title">
+                  You are elegible for:
+                </h3>
+
+                <CardList items={cardsAvailable} />
               </section>
             </>
           </div>

@@ -19,10 +19,10 @@ const UserForm = ({ onSubmit }) => {
   const [title, setTitle] = useState('');
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
-  const [dateOfBirth, setdateOfBirth] = useState(null);
+  const [dateOfBirth, setDateOfBirth] = useState(null);
   const [employmentStatus, setEmploymentStatus] = useState('');
-  const [annualIncome, setAnnualIncome] = useState(undefined);
-  const [houseNumber, setHouseNumber] = useState(undefined);
+  const [annualIncome, setAnnualIncome] = useState('');
+  const [houseNumber, setHouseNumber] = useState('');
   const [postcode, setPostcode] = useState('');
   const [error, setError] = useState(false);
 
@@ -50,8 +50,9 @@ const UserForm = ({ onSubmit }) => {
       lastname,
       title,
       employmentStatus,
-      annualIncome,
-      houseNumber,
+      dateOfBirth,
+      annualIncome: Number(annualIncome),
+      houseNumber: Number(houseNumber),
       postcode,
     });
   };
@@ -94,9 +95,11 @@ const UserForm = ({ onSubmit }) => {
         <span>Data of birth:</span>
         <DatePicker
           selected={dateOfBirth}
-          onChange={(date) => setdateOfBirth(date)}
+          dateFormat="dd/MM/yyyy"
+          onChange={(date) => setDateOfBirth(date)}
           maxDate={new Date()}
-          showDisabledMonthNavigation
+          className="crazy-card-user-form__input"
+          placeholderText="dd/MM/yyyy"
         />
       </label>
 

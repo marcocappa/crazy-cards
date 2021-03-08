@@ -3,11 +3,11 @@ import { IconAnywhere, IconLiquid, IconStudent, IconCards } from '../Icons';
 
 export const getCardIcon = (id) => {
   switch (id) {
-    case 'card-0':
+    case 'student':
       return <IconStudent />;
-    case 'card-1':
+    case 'anywhere':
       return <IconAnywhere />;
-    case 'card-2':
+    case 'liquid':
       return <IconLiquid />;
     default:
       return <IconCards />;
