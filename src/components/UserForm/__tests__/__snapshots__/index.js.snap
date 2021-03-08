@@ -31,7 +31,6 @@ exports[`<UserForm /> should match snapshot 1`] = `
           },
         ]
       }
-      value=""
     />
   </label>
   <label>
@@ -74,7 +73,7 @@ exports[`<UserForm /> should match snapshot 1`] = `
       enableTabLoop={true}
       excludeScrollbar={true}
       focusSelectedMonth={false}
-      maxDate={2021-03-07T23:00:00.000Z}
+      maxDate="2021-03-08"
       monthsShown={1}
       name="dateOfBirth"
       nextMonthButtonLabel="Next Month"
@@ -143,7 +142,6 @@ exports[`<UserForm /> should match snapshot 1`] = `
           },
         ]
       }
-      value=""
     />
   </label>
   <label>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<User /> should match snapshot 1`] = `
+exports[`<User /> should match snapshot  1`] = `
 <div>
   <div
     className="crazy-card-app"
@@ -32,9 +32,163 @@ exports[`<User /> should match snapshot 1`] = `
     >
       <UserForm
         onSubmit={[Function]}
-        today={2021-03-08T14:12:18.089Z}
       />
     </section>
+    <section
+      className="crazy-card-app__nav"
+    >
+      <LinkComponent
+        to="/"
+      >
+        Go back to home
+      </LinkComponent>
+    </section>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`<User /> should match snapshot after submitting the form and find CardUser and CheckboxList components 1`] = `
+<div>
+  <div
+    className="crazy-card-app"
+  >
+    <div>
+      <section
+        className="crazy-card-app__hero"
+      >
+        <h1
+          className="crazy-card-app__heading"
+        >
+          <img
+            className="crazy-card-app__heading-icon"
+            src={
+              Object {
+                "process": [Function],
+              }
+            }
+          />
+          Available Cards
+        </h1>
+        <h2
+          className="crazy-card-app__subheading"
+        >
+          Based on your details:
+        </h2>
+        <CardUser
+          annualIncome={18000}
+          dateOfBirth={2021-02-08T00:00:00.000Z}
+          employmentStatus="Student"
+          firstname="Firstname"
+          houseNumber={150}
+          lastname="Lastname"
+          postcode="E1 8NP"
+          title="Mr."
+        />
+      </section>
+      <section
+        className="crazy-card-app__section"
+      >
+        <h3
+          className="crazy-card-app__section-title"
+        >
+          You are elegible for:
+        </h3>
+        <CheckboxList
+          items={Array []}
+          name="cards"
+          onSelect={[Function]}
+        />
+      </section>
+      <section
+        className="crazy-card-app__section"
+      />
+    </div>
+    <section
+      className="crazy-card-app__nav"
+    >
+      <LinkComponent
+        to="/"
+      >
+        Go back to home
+      </LinkComponent>
+    </section>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`<User /> should match snapshot after submitting the form and find CardUser and CheckboxList components 2`] = `
+<div>
+  <div
+    className="crazy-card-app"
+  >
+    <div>
+      <section
+        className="crazy-card-app__hero"
+      >
+        <h1
+          className="crazy-card-app__heading"
+        >
+          <img
+            className="crazy-card-app__heading-icon"
+            src={
+              Object {
+                "process": [Function],
+              }
+            }
+          />
+          Available Cards
+        </h1>
+        <h2
+          className="crazy-card-app__subheading"
+        >
+          Based on your details:
+        </h2>
+        <CardUser
+          annualIncome={18000}
+          dateOfBirth={2021-02-08T00:00:00.000Z}
+          employmentStatus="Student"
+          firstname="Firstname"
+          houseNumber={150}
+          lastname="Lastname"
+          postcode="E1 8NP"
+          title="Mr."
+        />
+      </section>
+      <section
+        className="crazy-card-app__section"
+      >
+        <h3
+          className="crazy-card-app__section-title"
+        >
+          You are elegible for:
+        </h3>
+        <CheckboxList
+          items={Array []}
+          name="cards"
+          onSelect={[Function]}
+        />
+      </section>
+      <section
+        className="crazy-card-app__section"
+      >
+        <h3
+          className="crazy-card-app__section-title"
+        >
+          The total amount of credit available is:
+           
+          <span
+            className="crazy-card-app__total-credit"
+          >
+            0
+          </span>
+        </h3>
+        <CardList
+          items={Array []}
+        />
+      </section>
+    </div>
     <section
       className="crazy-card-app__nav"
     >

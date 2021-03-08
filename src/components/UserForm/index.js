@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
-import { checkForm } from './utility';
+import { checkForm, getToday } from './utility';
 import './user-form.scss';
 
 const titleOptions = [
@@ -55,7 +55,7 @@ const UserForm = ({ onSubmit, today }) => {
       <label>
         <span>Title:</span>
         <Select
-          value={user.title}
+          value={titleOptions.find((option) => option.value === user.title)}
           name="title"
           options={titleOptions}
           onChange={({ value }) => {
@@ -94,7 +94,7 @@ const UserForm = ({ onSubmit, today }) => {
           dateFormat="dd/MM/yyyy"
           onChange={(date) => setDateOfBirth(date)}
           onChange={(date) => handleChange('dateOfBirth', date)}
-          maxDate={today}
+          maxDate={getToday()}
           className="crazy-card-user-form__input"
           placeholderText="dd/MM/yyyy"
         />
@@ -103,7 +103,9 @@ const UserForm = ({ onSubmit, today }) => {
       <label>
         <span>Employment Status:</span>
         <Select
-          value={user.employmentStatus}
+          value={employmentStatusOptions.find(
+            (option) => option.value === user.employmentStatus
+          )}
           name="employmentStatus"
           options={employmentStatusOptions}
           onChange={(option) => {
@@ -171,11 +173,6 @@ const UserForm = ({ onSubmit, today }) => {
 
 UserForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  today: PropTypes.instanceOf(Date),
-};
-
-UserForm.defaultProps = {
-  today: new Date(),
 };
 
 export default UserForm;

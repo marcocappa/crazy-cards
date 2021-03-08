@@ -1,4 +1,9 @@
-import { getFilteredCards } from '../utility';
+import {
+  getFilteredCards,
+  getCheckboxList,
+  getCardListSelected,
+  getTotalCredit,
+} from '../utility';
 import { cards as mockCards } from '../../../mockData/cardsData';
 import { ANNUAL_INCOME_LIMIT } from '../../../common/constants';
 
@@ -80,5 +85,73 @@ describe('getFilteredCards function', () => {
       anywhereCard,
       liquidCard,
     ]);
+  });
+});
+
+describe('getCheckboxList function ', () => {
+  it('should return a formatted array of object for checkbox list component', () => {
+    expect(getCheckboxList(mockCards)).toEqual([
+      { id: 'student', value: 'student', label: 'Student Life' },
+      { id: 'anywhere', value: 'anywhere', label: 'Anywhere Card' },
+      { id: 'liquid', value: 'liquid', label: 'Liquid Card' },
+    ]);
+  });
+});
+
+describe('getCardListSelected function ', () => {
+  it('should return selected cards', () => {
+    const selectedIds1 = ['student'];
+    const selectedIds2 = ['anywhere'];
+    const selectedIds3 = ['liquid'];
+    const selectedIds4 = ['student', 'anywhere'];
+    const selectedIds5 = ['student', 'liquid'];
+    const selectedIds6 = ['anywhere', 'liquid'];
+    const selectedIds7 = ['student', 'anywhere', 'liquid'];
+    expect(getCardListSelected(mockCards, selectedIds1)).toEqual([
+      mockCards[0],
+    ]);
+    expect(getCardListSelected(mockCards, selectedIds2)).toEqual([
+      mockCards[1],
+    ]);
+    expect(getCardListSelected(mockCards, selectedIds3)).toEqual([
+      mockCards[2],
+    ]);
+
+    expect(getCardListSelected(mockCards, selectedIds4)).toEqual([
+      mockCards[0],
+      mockCards[1],
+    ]);
+    expect(getCardListSelected(mockCards, selectedIds5)).toEqual([
+      mockCards[0],
+      mockCards[2],
+    ]);
+    expect(getCardListSelected(mockCards, selectedIds6)).toEqual([
+      mockCards[1],
+      mockCards[2],
+    ]);
+    expect(getCardListSelected(mockCards, selectedIds7)).toEqual([
+      mockCards[0],
+      mockCards[1],
+      mockCards[2],
+    ]);
+  });
+});
+
+describe('getTotalCredit function ', () => {
+  it('should return the total credit available', () => {
+    const cards = [
+      {
+        creditAvailable: 1000,
+      },
+
+      {
+        creditAvailable: 100,
+      },
+
+      {
+        creditAvailable: 200,
+      },
+    ];
+    expect(getTotalCredit(cards)).toEqual(1300);
   });
 });

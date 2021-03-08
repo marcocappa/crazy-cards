@@ -7,7 +7,12 @@ import CardUser from '../../components/CardUser';
 import CardList from '../../components/CardList';
 import CheckboxList from '../../components/CheckboxList';
 import { cards as mockCards } from '../../mockData/cardsData';
-import { getFilteredCards } from './utility';
+import {
+  getFilteredCards,
+  getCheckboxList,
+  getCardListSelected,
+  getTotalCredit,
+} from './utility';
 
 const User = () => {
   const [user, setUser] = useState({});
@@ -27,25 +32,15 @@ const User = () => {
 
   useEffect(() => {
     const filteredCards = getFilteredCards(allCards, user);
-    const itemsList = filteredCards.map((card) => {
-      return { id: card.id, value: card.id, label: card.name };
-    });
-
+    const itemsList = getCheckboxList(filteredCards);
     setCardsAvailable([...itemsList]);
   }, [user]);
 
   useEffect(() => {
     const filteredCards = getFilteredCards(allCards, user);
-
-    const itemsList = filteredCards.filter((card) =>
-      selectedIds.includes(card.id)
-    );
-
-    const totalCreditAvailable = itemsList.reduce((acc, item) => {
-      return acc + item.creditAvailable;
-    }, 0);
-
-    setSelectedCardsAvailable(itemsList);
+    const cardsList = getCardListSelected(filteredCards, selectedIds);
+    const totalCreditAvailable = getTotalCredit(cardsList);
+    setSelectedCardsAvailable(cardsList);
     setTotalCredit(totalCreditAvailable);
   }, [selectedIds]);
 

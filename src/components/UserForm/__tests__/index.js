@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 import UserForm from '../index';
 
 // mock checkForm utility function
-import { checkForm } from '../utility';
+import { checkForm, getToday } from '../utility';
 jest.mock('../utility');
+getToday.mockReturnValue('2021-03-08');
 
 describe('<UserForm />', () => {
   const onSubmit = jest.fn();
   const props = {
     onSubmit,
-    today: new Date(2021, 2, 8),
   };
 
   let wrapper;
@@ -31,7 +31,10 @@ describe('<UserForm />', () => {
 
     // title select
     wrapper.find('[name="title"]').simulate('change', { value: title });
-    expect(wrapper.find('[name="title"]').props().value).toEqual(title);
+    expect(wrapper.find('[name="title"]').props().value).toEqual({
+      label: title,
+      value: title,
+    });
 
     // firstname
     wrapper
@@ -49,9 +52,10 @@ describe('<UserForm />', () => {
     wrapper
       .find('[name="employmentStatus"]')
       .simulate('change', { value: employmentStatus });
-    expect(wrapper.find('[name="employmentStatus"]').props().value).toEqual(
-      employmentStatus
-    );
+    expect(wrapper.find('[name="employmentStatus"]').props().value).toEqual({
+      label: employmentStatus,
+      value: employmentStatus,
+    });
 
     //annualIncome
     wrapper

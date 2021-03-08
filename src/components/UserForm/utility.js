@@ -16,3 +16,5 @@ export const checkForm = ({
   !annualIncome ||
   !houseNumber ||
   !postcode;
+
+export const getToday = () => new Date();
