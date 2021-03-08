@@ -1,4 +1,4 @@
-import { ANNUAL_INCOME_LIMIT } from '../../common/constants';
+import { ANNUAL_INCOME_LIMIT, CARD_TYPE } from '../../common/constants';
 
 /**
  * getFilteredCards function will filter an array of object based on user id
@@ -11,10 +11,10 @@ import { ANNUAL_INCOME_LIMIT } from '../../common/constants';
 export const getFilteredCards = (allCards, user) =>
   allCards.filter(
     (card) =>
-      card.id === 'anywhere' ||
-      (!('employmentStatus' in user) && card.id === 'student') ||
-      (user.employmentStatus === 'Student' && card.id === 'student') ||
-      (user.annualIncome > ANNUAL_INCOME_LIMIT && card.id === 'liquid')
+      card.id === CARD_TYPE.ANYWHERE ||
+      (!('employmentStatus' in user) && card.id === CARD_TYPE.STUDENT) ||
+      (user.employmentStatus === 'Student' && card.id === CARD_TYPE.STUDENT) ||
+      (user.annualIncome > ANNUAL_INCOME_LIMIT && card.id === CARD_TYPE.LIQUID)
   );
 
 /**
