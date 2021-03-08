@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should match snapshot 1`] = `
+<footer
+  className="crazy-cards-footer"
+>
+  <div
+    className="crazy-cards-footer__container"
+  >
+    <p>
+      © Copyright 2021 - Crazy Cards
+    </p>
+  </div>
+</footer>
+`;

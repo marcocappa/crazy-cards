@@ -45,6 +45,11 @@
             color: #ffffff;
             background-color: #403794;
         }
+
+        &:disabled {
+            background-color: rgb(203, 203, 203);
+            cursor: not-allowed;
+        }
     }
 
     &__error {

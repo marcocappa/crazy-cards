@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
+import { checkForm } from './utility';
 import './user-form.scss';
 
 const titleOptions = [
@@ -15,46 +17,37 @@ const employmentStatusOptions = [
   { value: 'Full Time', label: 'Full Time' },
 ];
 
-const UserForm = ({ onSubmit }) => {
-  const [title, setTitle] = useState('');
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState(null);
-  const [employmentStatus, setEmploymentStatus] = useState('');
-  const [annualIncome, setAnnualIncome] = useState('');
-  const [houseNumber, setHouseNumber] = useState('');
-  const [postcode, setPostcode] = useState('');
+const initialUserState = {
+  title: '',
+  firstname: '',
+  lastname: '',
+  dateOfBirth: '',
+  employmentStatus: '',
+  annualIncome: 0,
+  houseNumber: 0,
+  postcode: '',
+};
+
+const UserForm = ({ onSubmit, today }) => {
+  const [user, setUserData] = useState(initialUserState);
   const [error, setError] = useState(false);
+
+  const handleChange = (field, value) => {
+    setUserData({
+      ...user,
+      [field]: value,
+    });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (
-      !firstname ||
-      !lastname ||
-      !title ||
-      !dateOfBirth ||
-      !employmentStatus ||
-      !annualIncome ||
-      !houseNumber ||
-      !postcode
-    ) {
+    if (checkForm(user)) {
       setError(true);
       return;
     }
-
     setError(false);
-
-    onSubmit({
-      firstname,
-      lastname,
-      title,
-      employmentStatus,
-      dateOfBirth,
-      annualIncome: Number(annualIncome),
-      houseNumber: Number(houseNumber),
-      postcode,
-    });
+    onSubmit(user);
   };
 
   return (
@@ -62,9 +55,11 @@ const UserForm = ({ onSubmit }) => {
       <label>
         <span>Title:</span>
         <Select
+          value={user.title}
+          name="title"
           options={titleOptions}
-          onChange={(option) => {
-            setTitle(option.value);
+          onChange={({ value }) => {
+            handleChange('title', value);
           }}
         />
       </label>
@@ -75,8 +70,8 @@ const UserForm = ({ onSubmit }) => {
           className="crazy-card-user-form__input"
           name="firstname"
           type="text"
-          value={firstname}
-          onChange={(e) => setFirstname(e.target.value)}
+          value={user.firstname}
+          onChange={({ target: { value } }) => handleChange('firstname', value)}
         />
       </label>
 
@@ -86,18 +81,20 @@ const UserForm = ({ onSubmit }) => {
           className="crazy-card-user-form__input"
           name="lastname"
           type="text"
-          value={lastname}
-          onChange={(e) => setLastname(e.target.value)}
+          value={user.lastname}
+          onChange={({ target: { value } }) => handleChange('lastname', value)}
         />
       </label>
 
       <label>
         <span>Data of birth:</span>
         <DatePicker
-          selected={dateOfBirth}
+          name="dateOfBirth"
+          selected={user.dateOfBirth}
           dateFormat="dd/MM/yyyy"
           onChange={(date) => setDateOfBirth(date)}
-          maxDate={new Date()}
+          onChange={(date) => handleChange('dateOfBirth', date)}
+          maxDate={today}
           className="crazy-card-user-form__input"
           placeholderText="dd/MM/yyyy"
         />
@@ -106,9 +103,11 @@ const UserForm = ({ onSubmit }) => {
       <label>
         <span>Employment Status:</span>
         <Select
+          value={user.employmentStatus}
+          name="employmentStatus"
           options={employmentStatusOptions}
           onChange={(option) => {
-            setEmploymentStatus(option.value);
+            handleChange('employmentStatus', option.value);
           }}
         />
       </label>
@@ -119,8 +118,10 @@ const UserForm = ({ onSubmit }) => {
           className="crazy-card-user-form__input"
           name="annualIncome"
           type="number"
-          value={annualIncome}
-          onChange={(e) => setAnnualIncome(e.target.value)}
+          value={user.annualIncome}
+          onChange={({ target: { value } }) =>
+            handleChange('annualIncome', Number(value))
+          }
         />
       </label>
 
@@ -130,8 +131,10 @@ const UserForm = ({ onSubmit }) => {
           className="crazy-card-user-form__input"
           name="houseNumber"
           type="number"
-          value={houseNumber}
-          onChange={(e) => setHouseNumber(e.target.value)}
+          value={user.houseNumber}
+          onChange={({ target: { value } }) =>
+            handleChange('houseNumber', Number(value))
+          }
         />
       </label>
 
@@ -141,8 +144,8 @@ const UserForm = ({ onSubmit }) => {
           className="crazy-card-user-form__input"
           name="postcode"
           type="text"
-          value={postcode}
-          onChange={(e) => setPostcode(e.target.value)}
+          value={user.postcode}
+          onChange={({ target: { value } }) => handleChange('postcode', value)}
         />
       </label>
 
@@ -151,6 +154,7 @@ const UserForm = ({ onSubmit }) => {
           className="crazy-card-user-form__submit"
           type="button"
           onClick={(e) => handleSubmit(e)}
+          disabled={checkForm(user)}
         >
           Submit
         </button>
@@ -163,6 +167,15 @@ const UserForm = ({ onSubmit }) => {
       )}
     </form>
   );
+};
+
+UserForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  today: PropTypes.instanceOf(Date),
+};
+
+UserForm.defaultProps = {
+  today: new Date(),
 };
 
 export default UserForm;

@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserForm /> should match snapshot 1`] = `
+<form
+  className="crazy-card-user-form"
+  onSubmit={[Function]}
+>
+  <label>
+    <span>
+      Title:
+    </span>
+    <StateManager
+      defaultInputValue=""
+      defaultMenuIsOpen={false}
+      defaultValue={null}
+      name="title"
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "label": "Mr.",
+            "value": "Mr.",
+          },
+          Object {
+            "label": "Mrs.",
+            "value": "Mrs.",
+          },
+          Object {
+            "label": "Miss",
+            "value": "Miss",
+          },
+        ]
+      }
+      value=""
+    />
+  </label>
+  <label>
+    <span>
+      Firstname:
+    </span>
+    <input
+      className="crazy-card-user-form__input"
+      name="firstname"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </label>
+  <label>
+    <span>
+      Lastname:
+    </span>
+    <input
+      className="crazy-card-user-form__input"
+      name="lastname"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </label>
+  <label>
+    <span>
+      Data of birth:
+    </span>
+    <r
+      allowSameDay={false}
+      className="crazy-card-user-form__input"
+      customTimeInput={null}
+      dateFormat="dd/MM/yyyy"
+      dateFormatCalendar="LLLL yyyy"
+      disabled={false}
+      disabledKeyboardNavigation={false}
+      dropdownMode="scroll"
+      enableTabLoop={true}
+      excludeScrollbar={true}
+      focusSelectedMonth={false}
+      maxDate={2021-03-07T23:00:00.000Z}
+      monthsShown={1}
+      name="dateOfBirth"
+      nextMonthButtonLabel="Next Month"
+      nextYearButtonLabel="Next Year"
+      onBlur={[Function]}
+      onCalendarClose={[Function]}
+      onCalendarOpen={[Function]}
+      onChange={[Function]}
+      onClickOutside={[Function]}
+      onFocus={[Function]}
+      onInputClick={[Function]}
+      onInputError={[Function]}
+      onKeyDown={[Function]}
+      onMonthChange={[Function]}
+      onSelect={[Function]}
+      onYearChange={[Function]}
+      placeholderText="dd/MM/yyyy"
+      preventOpenOnFocus={false}
+      previousMonthButtonLabel="Previous Month"
+      previousYearButtonLabel="Previous Year"
+      readOnly={false}
+      renderDayContents={[Function]}
+      selected=""
+      shouldCloseOnSelect={true}
+      showFourColumnMonthYearPicker={false}
+      showFullMonthYearPicker={false}
+      showMonthYearPicker={false}
+      showPopperArrow={true}
+      showPreviousMonths={false}
+      showQuarterYearPicker={false}
+      showTimeInput={false}
+      showTimeSelect={false}
+      showTwoColumnMonthYearPicker={false}
+      showYearPicker={false}
+      strictParsing={false}
+      timeCaption="Time"
+      timeInputLabel="Time"
+      timeIntervals={30}
+      withPortal={false}
+      yearItemNumber={12}
+    />
+  </label>
+  <label>
+    <span>
+      Employment Status:
+    </span>
+    <StateManager
+      defaultInputValue=""
+      defaultMenuIsOpen={false}
+      defaultValue={null}
+      name="employmentStatus"
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "label": "Student",
+            "value": "Student",
+          },
+          Object {
+            "label": "Part Time",
+            "value": "Part Time",
+          },
+          Object {
+            "label": "Full Time",
+            "value": "Full Time",
+          },
+        ]
+      }
+      value=""
+    />
+  </label>
+  <label>
+    <span>
+      Annual Income:
+    </span>
+    <input
+      className="crazy-card-user-form__input"
+      name="annualIncome"
+      onChange={[Function]}
+      type="number"
+      value={0}
+    />
+  </label>
+  <label>
+    <span>
+      House Number:
+    </span>
+    <input
+      className="crazy-card-user-form__input"
+      name="houseNumber"
+      onChange={[Function]}
+      type="number"
+      value={0}
+    />
+  </label>
+  <label>
+    <span>
+      Postcode:
+    </span>
+    <input
+      className="crazy-card-user-form__input"
+      name="postcode"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </label>
+  <div
+    className="crazy-card-user-form__actions"
+  >
+    <button
+      className="crazy-card-user-form__submit"
+      onClick={[Function]}
+      type="button"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+`;
