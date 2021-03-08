@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<User /> should match snapshot 1`] = `
+<div>
+  <div
+    className="crazy-card-app"
+  >
+    <section
+      className="crazy-card-app__hero"
+    >
+      <h1
+        className="crazy-card-app__heading"
+      >
+        <img
+          className="crazy-card-app__heading-icon"
+          src={
+            Object {
+              "process": [Function],
+            }
+          }
+        />
+        Find the right credit card for you
+      </h1>
+      <h2
+        className="crazy-card-app__subheading"
+      >
+        Fill out the form to check the right credit card for you.
+      </h2>
+    </section>
+    <section
+      className="crazy-card-app__section"
+    >
+      <UserForm
+        onSubmit={[Function]}
+        today={2021-03-08T14:12:18.089Z}
+      />
+    </section>
+    <section
+      className="crazy-card-app__nav"
+    >
+      <LinkComponent
+        to="/"
+      >
+        Go back to home
+      </LinkComponent>
+    </section>
+  </div>
+  <Footer />
+</div>
+`;

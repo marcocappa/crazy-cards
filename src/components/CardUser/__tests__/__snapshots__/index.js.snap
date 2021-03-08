@@ -26,7 +26,7 @@ exports[`<CardUser /> should match snapshot 1`] = `
         Student
       </p>
       <p>
-        Annual income: 
+        Annual income: £
         5000
       </p>
     </div>

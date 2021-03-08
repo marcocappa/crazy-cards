@@ -21,7 +21,7 @@ const CardUser = ({
     <div className="cray-card-user__details">
       <div>
         <p>{employmentStatus}</p>
-        <p>Annual income: {annualIncome}</p>
+        <p>Annual income: £{annualIncome}</p>
       </div>
       <div>
         <p>House number: {houseNumber}</p>

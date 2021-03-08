@@ -7,15 +7,7 @@ import CardUser from '../../components/CardUser';
 import CardList from '../../components/CardList';
 import CheckboxList from '../../components/CheckboxList';
 import { cards as mockCards } from '../../mockData/cardsData';
-
-const getFilteredCards = (allCards, user) =>
-  allCards.filter(
-    (card) =>
-      card.id === 'anywhere' ||
-      (!('employmentStatus' in user) && card.id === 'student') ||
-      (user.employmentStatus === 'Student' && card.id === 'student') ||
-      (user.annualIncome > 16000 && card.id === 'liquid')
-  );
+import { getFilteredCards } from './utility';
 
 const User = () => {
   const [user, setUser] = useState({});

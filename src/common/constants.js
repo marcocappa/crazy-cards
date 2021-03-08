@@ -3,3 +3,5 @@ export const CARD_TYPE = {
   ANYWHERE: 'anywhere',
   LIQUID: 'liquid',
 };
+
+export const ANNUAL_INCOME_LIMIT = 16000;
