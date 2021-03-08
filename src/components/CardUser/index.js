@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
+import './card-user.scss';
+
 const CardUser = ({
   title,
   firstname,
@@ -15,7 +17,7 @@ const CardUser = ({
     <p className="cray-card-user__name">
       {title} {firstname} {lastname}
     </p>
-    <p> {format(dateOfBirth, 'dd-MM-yyyy')} </p>
+    <p className="cray-card-user__age">{format(dateOfBirth, 'dd-MM-yyyy')}</p>
     <div className="cray-card-user__details">
       <div>
         <p>{employmentStatus}</p>

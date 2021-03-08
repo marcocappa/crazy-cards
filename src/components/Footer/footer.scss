@@ -1,6 +1,6 @@
 .crazy-cards-footer {
-    background-color: #0f0a3a;
     padding: 4rem 0;
+    border-top: 1px solid #cccccc;
 
     &__container {
         box-sizing: border-box;
@@ -9,7 +9,7 @@
         padding: 0 1rem;
 
         & p {
-            color: #f4f4f4;
+            color: #0f0a3a;
             margin: 0;
         }
     }

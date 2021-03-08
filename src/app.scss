@@ -49,6 +49,10 @@ body {
     }
 
     &__nav {
-        padding: 2rem 0;
+        padding: 2rem 0 10rem;
+    }
+
+    &__total-credit {
+        color: #008500;
     }
 }

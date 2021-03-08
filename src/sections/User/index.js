@@ -5,12 +5,25 @@ import Link from '../../components/Link';
 import Footer from '../../components/Footer';
 import CardUser from '../../components/CardUser';
 import CardList from '../../components/CardList';
+import CheckboxList from '../../components/CheckboxList';
 import { cards as mockCards } from '../../mockData/cardsData';
+
+const getFilteredCards = (allCards, user) =>
+  allCards.filter(
+    (card) =>
+      card.id === 'anywhere' ||
+      (!('employmentStatus' in user) && card.id === 'student') ||
+      (user.employmentStatus === 'Student' && card.id === 'student') ||
+      (user.annualIncome > 16000 && card.id === 'liquid')
+  );
 
 const User = () => {
   const [user, setUser] = useState({});
+  const [selectedCardsAvailable, setSelectedCardsAvailable] = useState([]);
   const [cardsAvailable, setCardsAvailable] = useState([]);
   const [allCards, setAllCards] = useState([]);
+  const [selectedIds, setSelectedIds] = useState([]);
+  const [totalCredit, setTotalCredit] = useState(0);
 
   const handleOnSubmit = (userData) => {
     setUser({ ...userData });
@@ -21,16 +34,38 @@ const User = () => {
   }, []);
 
   useEffect(() => {
-    const filteredCards = allCards.filter(
-      (card) =>
-        card.id === 'anywhere' ||
-        (!('employmentStatus' in user) && card.id === 'student') ||
-        (user.employmentStatus === 'Student' && card.id === 'student') ||
-        (user.annualIncome > 16000 && card.id === 'liquid')
+    const filteredCards = getFilteredCards(allCards, user);
+    const itemsList = filteredCards.map((card) => {
+      return { id: card.id, value: card.id, label: card.name };
+    });
+
+    setCardsAvailable([...itemsList]);
+  }, [user]);
+
+  useEffect(() => {
+    const filteredCards = getFilteredCards(allCards, user);
+
+    const itemsList = filteredCards.filter((card) =>
+      selectedIds.includes(card.id)
     );
 
-    setCardsAvailable([...filteredCards]);
-  }, [user]);
+    const totalCreditAvailable = itemsList.reduce((acc, item) => {
+      return acc + item.creditAvailable;
+    }, 0);
+
+    setSelectedCardsAvailable(itemsList);
+    setTotalCredit(totalCreditAvailable);
+  }, [selectedIds]);
+
+  const handleSelect = (id) => {
+    let newSelected = [...selectedIds];
+    if (selectedIds.includes(id)) {
+      newSelected = selectedIds.filter((selectedId) => selectedId !== id);
+    } else {
+      newSelected = [...selectedIds, id];
+    }
+    setSelectedIds([...newSelected]);
+  };
 
   return (
     <div>
@@ -63,8 +98,7 @@ const User = () => {
                 </h1>
 
                 <h2 className="crazy-card-app__subheading">
-                  {user.title} {user.firstname} {user.lastname}, based on your
-                  details:
+                  Based on your details:
                 </h2>
                 <CardUser {...user} />
               </section>
@@ -73,7 +107,24 @@ const User = () => {
                   You are elegible for:
                 </h3>
 
-                <CardList items={cardsAvailable} />
+                <CheckboxList
+                  items={cardsAvailable}
+                  name="cards"
+                  onSelect={handleSelect}
+                />
+              </section>
+              <section className="crazy-card-app__section">
+                {selectedIds.length > 0 && (
+                  <>
+                    <h3 className="crazy-card-app__section-title">
+                      The total amount of credit available is:{' '}
+                      <span className="crazy-card-app__total-credit">
+                        {totalCredit}
+                      </span>
+                    </h3>
+                    <CardList items={selectedCardsAvailable} />
+                  </>
+                )}
               </section>
             </>
           </div>
