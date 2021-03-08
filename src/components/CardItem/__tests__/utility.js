@@ -1,24 +1,25 @@
 import React from 'react';
 import { getCardIcon } from '../utility';
 import { IconAnywhere, IconLiquid, IconStudent, IconCards } from '../../Icons';
+import { CARD_TYPE } from '../../../common/constants';
 
 describe('getCardIcon function', () => {
   it('should return a specific card icon', () => {
     const cardIds = [
       {
-        id: 'card-0',
+        id: CARD_TYPE.STUDENT,
         name: 'Student Life',
       },
       {
-        id: 'card-1',
+        id: CARD_TYPE.ANYWHERE,
         name: 'Anywhere Card',
       },
       {
-        id: 'card-2',
+        id: CARD_TYPE.LIQUID,
         name: 'Liquid Card',
       },
       {
-        id: 'unknown-id',
+        id: 'unknown',
         name: 'Generic Icon Card',
       },
     ];
